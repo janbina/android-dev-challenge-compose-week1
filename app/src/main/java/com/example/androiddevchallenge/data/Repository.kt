@@ -1,16 +1,24 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.data
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateMapOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
 import com.example.androiddevchallenge.model.Goat
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.map
 
 class Repository {
 
@@ -27,7 +35,6 @@ class Repository {
         current[index] = current[index].copy(liked = liked)
         goats.value = current
     }
-
 }
 
 private fun createDummyGoats() = listOf<Goat>(
@@ -46,8 +53,8 @@ private fun createDummyGoats() = listOf<Goat>(
         "1 year",
         "Felix Haynes",
         "A baby newborn goat is called a kid! Kind of like you! The mother goat is called a doe or a nanny while the father goat is called a billy or a buck. It’s not strange to find a goat with twin kids or even triplets! How would you feel if you had a twin brother or sister… or two! Goats that get together in a group are called a herd or a tribe. It is through this tribe that kids enjoy protection from the mother goat and the other older, more responsible goats. Goats are very vocal and like to call for each other when they need help or just want to play!\n" +
-                "\n" +
-                "After spending about 5 months in their mother’s womb, the mommy goat will give birth to the baby goat (kid). Just minutes after being born, goats are able to rise off the ground and try taking some baby steps. They’ll even begin to experiment with their voice and see just how vocal they can be. Like other mammals they like to drink their mother’s milk. They will drink from their mother until they are old enough to start tasting some yummy grasses.",
+            "\n" +
+            "After spending about 5 months in their mother’s womb, the mommy goat will give birth to the baby goat (kid). Just minutes after being born, goats are able to rise off the ground and try taking some baby steps. They’ll even begin to experiment with their voice and see just how vocal they can be. Like other mammals they like to drink their mother’s milk. They will drink from their mother until they are old enough to start tasting some yummy grasses.",
     ),
     Goat(
         3L,
