@@ -18,16 +18,23 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.animation.Crossfade
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevchallenge.data.Repository
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.statusBarColor = 0xFF689f38.toInt()
+
         setContent {
             MyTheme {
                 MyApp()
@@ -36,11 +43,30 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+private sealed class Screen {
+    object Home : Screen()
+    data class Detail(val id: Long) : Screen()
+}
+
+val repository = Repository()
+
 // Start building your app here!
 @Composable
 fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+    var screen by remember { mutableStateOf<Screen>(Screen.Home) }
+
+    Crossfade(targetState = screen) {
+        when (it) {
+            Screen.Home -> HomeScreen(
+                repository = repository,
+                navigateToGoatAction = { id -> screen = Screen.Detail(id) }
+            )
+            is Screen.Detail -> DetailScreen(
+                repository = repository,
+                goToHomeScreenAction = { screen = Screen.Home },
+                goatId = it.id
+            )
+        }
     }
 }
 
