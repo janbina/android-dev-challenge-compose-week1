@@ -2,20 +2,19 @@
 
 ![Workflow result](https://github.com/janbina/android-dev-challenge-compose-week1/workflows/Check/badge.svg)
 
-
 ## :scroll: Description
-Oh My Goat
-<!--- Describe your app in one or two sentences -->
+Oh My Goat lists goat pets available for adoption.
+You can browse a list of all goats with their names and pictures,
+you can see a detail of each goat and you can like your favorite goats!
 
 
 ## :bulb: Motivation and Context
-<!--- Optionally point readers to interesting parts of your submission. -->
-<!--- What are you especially proud of? -->
-
+I wrote this app for Android Dev Challenge to get my hands on Jetpack Compose.
+The most interesting part is the ease of photo loading, using the awesome
+[https://github.com/chrisbanes/accompanist](Accompanist) library.
 
 ## :camera_flash: Screenshots
-<!-- You can add more screenshots here if you like -->
-<img src="/results/screenshot_1.jpg" width="260">&emsp;<img src="/results/screenshot_2.jpg" width="260">
+<img src="/results/screenshot_1.png" width="260">&emsp;<img src="/results/screenshot_2.png" width="260">
 
 ## License
 ```
